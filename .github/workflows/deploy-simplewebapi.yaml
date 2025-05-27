@@ -2,12 +2,11 @@ name: Deploy SimpleWebApi to ECS
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main  # Trigger on push to main branch
 
 jobs:
   build-and-deploy:
-   if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
